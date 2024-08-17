@@ -1,3 +1,14 @@
+# local
+converted_pdfs/
+*.pdf
+*.doc
+*.docx
+*.ppt
+*.pptx
+backup/
+test/
+
+
 # Prerequisites
 *.d
 

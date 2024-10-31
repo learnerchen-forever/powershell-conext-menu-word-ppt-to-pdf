@@ -12,7 +12,7 @@
 
 ## 使用方法
 1. 复制 AddContextMenu.reg 和 convert2pdf.ps1到windows系统中
-2. 根据你的具体保存convert2pdf.ps1所在目录的位置，如果不是``C:\\convert2pdf` `，修改AddContextMenu.reg中的相应路径
+2. 根据你的具体保存convert2pdf.ps1所在目录的位置，如果不是`C:\\convert2pdf`，修改AddContextMenu.reg中的相应路径
 3. 双击AddContextMenu.reg, 导入注册表，添加右键菜单
 
 ## 注意事项

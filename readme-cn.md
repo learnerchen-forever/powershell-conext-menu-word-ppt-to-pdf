@@ -1,5 +1,5 @@
 # Windows 右键菜单 转换 Word/PPT 文件到 PDF
-
+[English](readme.md)
 ## 功能概述
 
 在很多时候，需要把MS Word, PowerPoint 文件转换为PDF格式。比如，在Obsidian或Logseq这类的笔记应用中，PDF是可以直接导入到知识库的格式。

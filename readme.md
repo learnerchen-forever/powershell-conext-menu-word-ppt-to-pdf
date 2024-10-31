@@ -1,5 +1,7 @@
 # Convert MS Office Word/PPT to PDF with PowerShell and context menu
 
+[中文](readme-cn.md)
+
 ## Functionality
 
 Microsoft Office document like Word (doc/docx) and PowerPoint (ppt/ppx) are widely used in our daily work. While some sutiation, PDF version might be more proper for us. 

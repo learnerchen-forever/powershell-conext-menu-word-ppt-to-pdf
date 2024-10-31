@@ -1,26 +1,9 @@
+# convert2pdf.ps1
+# Powershell script to convert word/ppt to pdf
+# Author: Learner Chen (learner.chen@icloud.com)
+# last updated: 2024-10-31
+# License: MIT
 
-
-
-# function GetPdffile{
-#     param(
-#         $file,
-#         $pdf_folder
-#     )
-    
-#     $path = Get-Item -path $file
-    
-#     if (-not $pdf_folder){
-#         write-output $pdf_folder 'not found'
-#         $pdf_file = Join-Path -Path $path.DirectoryName -ChildPath $($path.name.split(".")[0] + ".pdf")
-#         return $pdf_file
-#     }
-#     else{
-#         $pdf_path = Join-Path -Path $path.DirectoryName -ChildPath $pdf_folder 
-#         $pdf_file = Join-Path -path $pdf_path -ChildPath $($path.name.split(".")[0] + ".pdf")
-#         write-output $pdf_file
-#         return $pdf_file
-#     }
-# }
 
 Function WordConvertToPDF {
     param(
@@ -133,23 +116,18 @@ $pdf_sub_folder_name = "converted_pdfs"
 # main function entry
 function Main {
 
-
     param($file = $pwd)
 
     # Write-Host "The selected file is: $file"
     $path = Get-Item -path $file
 
     if ($path.PSIsContainer) {
-        # 这是一个目录
         # Write-Host "Directory:" $path
-        # 在这里添加对目录的操作
         New-Item -Path $path\$pdf_sub_folder_name -ItemType directory -Force
         ScanPPT2PDF $path $pdf_sub_folder_name
         ScanWord2PDF $path $pdf_sub_folder_name
     }
     else {
-        # 这是一个文件
-   
         # Write-Host "File:" $path.DirectoryName $path.Name
         New-Item -Path $(Join-Path -path $path.DirectoryName -childpath $pdf_sub_folder_name) -ItemType directory -Force
         if ($path.Extension -eq ".doc" -or $path.Extension -eq ".docx") {

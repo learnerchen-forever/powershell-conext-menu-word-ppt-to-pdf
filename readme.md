@@ -1,30 +1,39 @@
-# Office Word/PPT 转换 PDF
+# Convert MS Office Word/PPT to PDF with PowerShell and context menu
 
-## 功能概述
+## Functionality
 
-在很多时候，需要把MS Word, PowerPoint 文件转换为PDF格式。比如，在Obsidian或Logseq这类的笔记应用中，PDF是可以直接导入到知识库的格式。
+Microsoft Office document like Word (doc/docx) and PowerPoint (ppt/ppx) are widely used in our daily work. While some sutiation, PDF version might be more proper for us. 
 
+For example, in note taking tools like `obdisian` or `logseq`, PDF version makes the reading, annotation and reference much easier, and saves a lot of time. 
 
-通常转换的过程中，每一个文件，都需要打开Office应用做转换，还是有些麻烦。
+Office itself provides a way to convert these files to PDF, but you have to open document in the application first. If we are going to convert a batch of files, it will be a little bit tedious.
+ 
+We provide a PowerShell script to do the job. and add a context menu to Windows Explorer. It allows you to convert a single file or all Word/PPT files in a directory. Just right click the file or directory.
 
-为了操作的简单便捷，把这个功能做到文件管理器的上下文（右键）菜单里。选择一个文件，或转换目录中所有的Word/PPT文件。
-
-
-
-## 使用方法
-1. 复制 AddContextMenu.reg 和 convert2pdf.ps1到windows系统中
-2. 根据你的具体保存convert2pdf.ps1所在目录的位置，修改AddContextMenu.reg中的相应路径
-3. 双击AddContextMenu.reg, 导入注册表，添加右键菜单
-
-## 注意事项
-1. 需要安装MS Office
-2. 需要管理员权限
-3. 需要安装PowerShell
-4. 注意 AddContextMenu.reg 文件的编码格式，必须是 __UTF-16 LE__ ，否则右键菜单的中文会出现乱码
-5. Windows 11中，右键菜单，“显示更多选项” ,才能显示。
-6. 如果文件本身存在问题，脚本无法处理这类错误。用户自己要确保文件是可以正常打开，没有损坏。
+You don't need to install any software. Just download the script and edit it according to your configuration.
 
 
 
-## Version
-- 1.0.0, 2024-08-17
+## Installation
+1. Download following 2 files to your Windows system:
+    - convert2pdf.ps1
+    - AddContextMenu.reg
+2. save them to a folder, for instance: `C:\\convert2pdf` 
+3. replace the path in AddContextMenu.reg with the actual path where you saved the script.
+4. double click AddContextMenu.reg, and import the registry, add context menu.
+
+
+## note
+1. You must have Microsoft Office installed
+2. to inject .reg file, you must have admin privilege
+3. Powershell is required
+4. The encoding of AddContextMenu.reg must be __UTF-16 LE__, else, the context menu text could be in error, if you are using Chinese or other language. 
+5. In Windows 11, the menu is in second level, that is you should cick on the "more options" to see the context menu. 
+6. If the office document is corrupted, the script cannot handle it. User should ensure the file is readable. 
+
+
+
+## Version history
+- 1.0.0, 2024-08-17 first release
+- 1.0.1, 2024-10-31 update to English version, to release on GitHub
+
